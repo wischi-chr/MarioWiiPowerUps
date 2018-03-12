@@ -1,0 +1,1370 @@
+<PowerUpBoard>
+	<World Number="1">
+		<Board>
+			<!-- Row 1 -->
+			<Item Name="IceFlower"/>
+			<Item Name="Fly"/>
+			<Item Name="FireFlower"/>
+			<Item Name="Mushroom"/>
+			<Item Name="Bowser"/>
+			<Item Name="MiniBowser"/>
+			
+			<!-- Row 2 -->
+			<Item Name="Mushroom"/>
+			<Item Name="IceFlower"/>
+			<Item Name="Fly"/>
+			<Item Name="Bowser"/>
+			<Item Name="IceFlower"/>
+			<Item Name="Fly"/>
+			
+			<!-- Row 3 -->
+			<Item Name="FireFlower"/>
+			<Item Name="MiniBowser"/>
+			<Item Name="IceFlower"/>
+			<Item Name="Fly"/>
+			<Item Name="FireFlower"/>
+			<Item Name="FireFlower"/>
+		</Board>
+		<Board>
+			<!-- Row 1 -->
+			<Item Name="MiniBowser"/>
+			<Item Name="IceFlower"/>
+			<Item Name="FireFlower"/>
+			<Item Name="FireFlower"/>
+			<Item Name="Fly"/>
+			<Item Name="Fly"/>
+			
+			<!-- Row 2 -->
+			<Item Name="FireFlower"/>
+			<Item Name="Bowser"/>
+			<Item Name="Fly"/>
+			<Item Name="Mushroom"/>
+			<Item Name="IceFlower"/>
+			<Item Name="MiniBowser"/>
+			
+			<!-- Row 3 -->
+			<Item Name="IceFlower"/>
+			<Item Name="Fly"/>
+			<Item Name="Mushroom"/>
+			<Item Name="Bowser"/>
+			<Item Name="FireFlower"/>
+			<Item Name="IceFlower"/>
+		</Board>
+		<Board>
+			<!-- Row 1 -->
+			<Item Name="MiniBowser"/>
+			<Item Name="Fly"/>
+			<Item Name="FireFlower"/>
+			<Item Name="Mushroom"/>
+			<Item Name="Star"/>
+			<Item Name="Fly"/>
+			
+			<!-- Row 2 -->
+			<Item Name="Mushroom"/>
+			<Item Name="IceFlower"/>
+			<Item Name="FireFlower"/>
+			<Item Name="Bowser"/>
+			<Item Name="IceFlower"/>
+			<Item Name="Star"/>
+			
+			<!-- Row 3 -->
+			<Item Name="FireFlower"/>
+			<Item Name="MiniBowser"/>
+			<Item Name="IceFlower"/>
+			<Item Name="Bowser"/>
+			<Item Name="FireFlower"/>
+			<Item Name="IceFlower"/>
+		</Board>
+		<Board>
+			<!-- Row 1 -->
+			<Item Name="Fly"/>
+			<Item Name="Fly"/>
+			<Item Name="IceFlower"/>
+			<Item Name="FireFlower"/>
+			<Item Name="Bowser"/>
+			<Item Name="Fly"/>
+			
+			<!-- Row 2 -->
+			<Item Name="FireFlower"/>
+			<Item Name="Bowser"/>
+			<Item Name="FireFlower"/>
+			<Item Name="Mushroom"/>
+			<Item Name="IceFlower"/>
+			<Item Name="MiniBowser"/>
+			
+			<!-- Row 3 -->
+			<Item Name="IceFlower"/>
+			<Item Name="MiniBowser"/>
+			<Item Name="Mushroom"/>
+			<Item Name="Fly"/>
+			<Item Name="FireFlower"/>
+			<Item Name="IceFlower"/>
+		</Board>
+		<Board>
+			<!-- Row 1 -->
+			<Item Name="IceFlower"/>
+			<Item Name="IceFlower"/>
+			<Item Name="FireFlower"/>
+			<Item Name="FireFlower"/>
+			<Item Name="Fly"/>
+			<Item Name="MiniBowser"/>
+			
+			<!-- Row 2 -->
+			<Item Name="Mushroom"/>
+			<Item Name="Bowser"/>
+			<Item Name="FireFlower"/>
+			<Item Name="Bowser"/>
+			<Item Name="FireFlower"/>
+			<Item Name="Star"/>
+			
+			<!-- Row 3 -->
+			<Item Name="IceFlower"/>
+			<Item Name="Star"/>
+			<Item Name="Mushroom"/>
+			<Item Name="Fly"/>
+			<Item Name="MiniBowser"/>
+			<Item Name="IceFlower"/>
+		</Board>
+		<Board>
+			<!-- Row 1 -->
+			<Item Name="Fly"/>
+			<Item Name="IceFlower"/>
+			<Item Name="IceFlower"/>
+			<Item Name="Mushroom"/>
+			<Item Name="Bowser"/>
+			<Item Name="Fly"/>
+			
+			<!-- Row 2 -->
+			<Item Name="FireFlower"/>
+			<Item Name="IceFlower"/>
+			<Item Name="Fly"/>
+			<Item Name="Mushroom"/>
+			<Item Name="FireFlower"/>
+			<Item Name="MiniBowser"/>
+			
+			<!-- Row 3 -->
+			<Item Name="FireFlower"/>
+			<Item Name="Fly"/>
+			<Item Name="IceFlower"/>
+			<Item Name="Bowser"/>
+			<Item Name="MiniBowser"/>
+			<Item Name="FireFlower"/>
+		</Board>
+	</World>
+	<World Number="2">
+		<Board>
+			<!-- Row 1 -->
+			<Item Name="Mini"/>
+			<Item Name="Fly"/>
+			<Item Name="Fly"/>
+			<Item Name="Mini"/>
+			<Item Name="Star"/>
+			<Item Name="Fly"/>
+			
+			<!-- Row 2 -->
+			<Item Name="Star"/>
+			<Item Name="FireFlower"/>
+			<Item Name="Bowser"/>
+			<Item Name="IceFlower"/>
+			<Item Name="Mini"/>
+			<Item Name="MiniBowser"/>
+			
+			<!-- Row 3 -->
+			<Item Name="Mini"/>
+			<Item Name="Bowser"/>
+			<Item Name="FireFlower"/>
+			<Item Name="MiniBowser"/>
+			<Item Name="IceFlower"/>
+			<Item Name="Fly"/>
+		</Board>
+		<Board>
+			<!-- Row 1 -->
+			<Item Name="Fly"/>
+			<Item Name="Mini"/>
+			<Item Name="Fly"/>
+			<Item Name="Mini"/>
+			<Item Name="MiniBowser"/>
+			<Item Name="Fly"/>
+			
+			<!-- Row 2 -->
+			<Item Name="Bowser"/>
+			<Item Name="FireFlower"/>
+			<Item Name="Fly"/>
+			<Item Name="IceFlower"/>
+			<Item Name="Mini"/>
+			<Item Name="MiniBowser"/>
+			
+			<!-- Row 3 -->
+			<Item Name="IceFlower"/>
+			<Item Name="FireFlower"/>
+			<Item Name="FireFlower"/>
+			<Item Name="Mini"/>
+			<Item Name="Bowser"/>
+			<Item Name="FireFlower"/>
+		</Board>
+		<Board>
+			<!-- Row 1 -->
+			<Item Name="MiniBowser"/>
+			<Item Name="Fly"/>
+			<Item Name="FireFlower"/>
+			<Item Name="FireFlower"/>
+			<Item Name="Fly"/>
+			<Item Name="Fly"/>
+			
+			<!-- Row 2 -->
+			<Item Name="Mini"/>
+			<Item Name="IceFlower"/>
+			<Item Name="Fly"/>
+			<Item Name="IceFlower"/>
+			<Item Name="Mini"/>
+			<Item Name="Mini"/>
+			
+			<!-- Row 3 -->
+			<Item Name="Mini"/>
+			<Item Name="Bowser"/>
+			<Item Name="FireFlower"/>
+			<Item Name="MiniBowser"/>
+			<Item Name="Bowser"/>
+			<Item Name="FireFlower"/>
+		</Board>
+		<Board>
+			<!-- Row 1 -->
+			<Item Name="MiniBowser"/>
+			<Item Name="Mini"/>
+			<Item Name="FireFlower"/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 2 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 3 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+		</Board>
+		<Board>
+			<!-- Row 1 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 2 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 3 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+		</Board>
+		<Board>
+			<!-- Row 1 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 2 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 3 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+		</Board>
+	</World>
+	<World Number="3">
+		<Board>
+			<!-- Row 1 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 2 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 3 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+		</Board>
+		<Board>
+			<!-- Row 1 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 2 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 3 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+		</Board>
+		<Board>
+			<!-- Row 1 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 2 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 3 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+		</Board>
+		<Board>
+			<!-- Row 1 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 2 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 3 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+		</Board>
+		<Board>
+			<!-- Row 1 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 2 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 3 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+		</Board>
+		<Board>
+			<!-- Row 1 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 2 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 3 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+		</Board>
+	</World>
+	<World Number="4">
+		<Board>
+			<!-- Row 1 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 2 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 3 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+		</Board>
+		<Board>
+			<!-- Row 1 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 2 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 3 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+		</Board>
+		<Board>
+			<!-- Row 1 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 2 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 3 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+		</Board>
+		<Board>
+			<!-- Row 1 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 2 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 3 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+		</Board>
+		<Board>
+			<!-- Row 1 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 2 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 3 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+		</Board>
+		<Board>
+			<!-- Row 1 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 2 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 3 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+		</Board>
+	</World>
+	<World Number="5">
+		<Board>
+			<!-- Row 1 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 2 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 3 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+		</Board>
+		<Board>
+			<!-- Row 1 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 2 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 3 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+		</Board>
+		<Board>
+			<!-- Row 1 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 2 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 3 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+		</Board>
+		<Board>
+			<!-- Row 1 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 2 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 3 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+		</Board>
+		<Board>
+			<!-- Row 1 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 2 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 3 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+		</Board>
+		<Board>
+			<!-- Row 1 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 2 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 3 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+		</Board>
+	</World>
+	<World Number="6">
+		<Board>
+			<!-- Row 1 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 2 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 3 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+		</Board>
+		<Board>
+			<!-- Row 1 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 2 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 3 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+		</Board>
+		<Board>
+			<!-- Row 1 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 2 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 3 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+		</Board>
+		<Board>
+			<!-- Row 1 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 2 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 3 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+		</Board>
+		<Board>
+			<!-- Row 1 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 2 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 3 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+		</Board>
+		<Board>
+			<!-- Row 1 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 2 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 3 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+		</Board>
+	</World>
+	<World Number="7">
+		<Board>
+			<!-- Row 1 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 2 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 3 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+		</Board>
+		<Board>
+			<!-- Row 1 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 2 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 3 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+		</Board>
+		<Board>
+			<!-- Row 1 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 2 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 3 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+		</Board>
+		<Board>
+			<!-- Row 1 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 2 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 3 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+		</Board>
+		<Board>
+			<!-- Row 1 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 2 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 3 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+		</Board>
+		<Board>
+			<!-- Row 1 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 2 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 3 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+		</Board>
+	</World>
+	<World Number="8">
+		<Board>
+			<!-- Row 1 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 2 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 3 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+		</Board>
+		<Board>
+			<!-- Row 1 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 2 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 3 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+		</Board>
+		<Board>
+			<!-- Row 1 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 2 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 3 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+		</Board>
+		<Board>
+			<!-- Row 1 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 2 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 3 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+		</Board>
+		<Board>
+			<!-- Row 1 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 2 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 3 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+		</Board>
+		<Board>
+			<!-- Row 1 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 2 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 3 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+		</Board>
+	</World>
+	<World Number="9">
+		<Board>
+			<!-- Row 1 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 2 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 3 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+		</Board>
+		<Board>
+			<!-- Row 1 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 2 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 3 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+		</Board>
+		<Board>
+			<!-- Row 1 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 2 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 3 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+		</Board>
+		<Board>
+			<!-- Row 1 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 2 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 3 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+		</Board>
+		<Board>
+			<!-- Row 1 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 2 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 3 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+		</Board>
+		<Board>
+			<!-- Row 1 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 2 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			
+			<!-- Row 3 -->
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+			<Item Name=""/>
+		</Board>
+	</World>
+</PowerUpBoard>

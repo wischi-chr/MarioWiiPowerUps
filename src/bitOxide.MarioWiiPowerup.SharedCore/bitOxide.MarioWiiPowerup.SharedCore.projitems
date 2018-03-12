@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>3f082d80-21e1-4937-b340-eabc4a109ef5</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>bitOxide.MarioWiiPowerup.SharedCore</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Board.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)BoardCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)BoardExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GlobalBoardCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Item.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Strategies\FindSolutionWithLeastInputs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Strategies\ISuggestionStrategy.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SuperMarioWiiBoards.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SuperMarioWiiConstants.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\MainPanel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)WorldBoardCollection.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)MarioBoardData.txt" />
+  </ItemGroup>
+</Project>

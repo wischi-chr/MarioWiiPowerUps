@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bitOxide.MarioWiiPowerup.WPF", "bitOxide.MarioWiiPowerup.WPF\bitOxide.MarioWiiPowerup.WPF.csproj", "{91F433BD-36AF-4D85-B5FE-494DE4BEB381}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bitOxide.MarioWiiPowerup.Tests", "bitOxide.MarioWiiPowerup.Tests\bitOxide.MarioWiiPowerup.Tests.csproj", "{561B544E-7342-4028-A42C-8B0111D8B5C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bitOxide.MarioWiiPowerup.Javascript", "bitOxide.MarioWiiPowerup.Javascript\bitOxide.MarioWiiPowerup.Javascript.csproj", "{35431A86-E654-40B2-ADD0-7A4273BCA166}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "bitOxide.MarioWiiPowerup.CoreShared", "bitOxide.MarioWiiPowerup.SharedCore\bitOxide.MarioWiiPowerup.CoreShared.shproj", "{3F082D80-21E1-4937-B340-EABC4A109EF5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bitOxide.MarioWiiPowerup.Core", "bitOxide.MarioWiiPowerup.Core\bitOxide.MarioWiiPowerup.Core.csproj", "{39D69169-95E0-43BB-A229-0F8122E742F2}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		bitOxide.MarioWiiPowerup.SharedCore\bitOxide.MarioWiiPowerup.SharedCore.projitems*{35431a86-e654-40b2-add0-7a4273bca166}*SharedItemsImports = 4
+		bitOxide.MarioWiiPowerup.SharedCore\bitOxide.MarioWiiPowerup.SharedCore.projitems*{39d69169-95e0-43bb-a229-0f8122e742f2}*SharedItemsImports = 4
+		bitOxide.MarioWiiPowerup.SharedCore\bitOxide.MarioWiiPowerup.SharedCore.projitems*{3f082d80-21e1-4937-b340-eabc4a109ef5}*SharedItemsImports = 13
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{91F433BD-36AF-4D85-B5FE-494DE4BEB381}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91F433BD-36AF-4D85-B5FE-494DE4BEB381}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91F433BD-36AF-4D85-B5FE-494DE4BEB381}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91F433BD-36AF-4D85-B5FE-494DE4BEB381}.Release|Any CPU.Build.0 = Release|Any CPU
+		{561B544E-7342-4028-A42C-8B0111D8B5C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{561B544E-7342-4028-A42C-8B0111D8B5C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{561B544E-7342-4028-A42C-8B0111D8B5C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{561B544E-7342-4028-A42C-8B0111D8B5C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35431A86-E654-40B2-ADD0-7A4273BCA166}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35431A86-E654-40B2-ADD0-7A4273BCA166}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35431A86-E654-40B2-ADD0-7A4273BCA166}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35431A86-E654-40B2-ADD0-7A4273BCA166}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39D69169-95E0-43BB-A229-0F8122E742F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39D69169-95E0-43BB-A229-0F8122E742F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39D69169-95E0-43BB-A229-0F8122E742F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39D69169-95E0-43BB-A229-0F8122E742F2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {598C7A4D-35E0-46E5-9DBD-48046BCC866A}
+	EndGlobalSection
+EndGlobal
