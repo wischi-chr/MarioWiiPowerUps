@@ -1,0 +1,21 @@
+{
+  "name": "Super Mario Wii PowerUps",
+  "short_name": "PowerUps",
+  "display": "fullscreen",
+  "orientation": "landscape",
+  "start_url": ".",
+  "theme_color": "#673ab6",
+  "background_color": "#673ab6",
+  "icons": [
+    {
+      "src": "img/mushroom.png",
+      "sizes": "300x300",
+      "type": "image/png"
+    },
+	{
+      "src": "img/mushroom_512px.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
