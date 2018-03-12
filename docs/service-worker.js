@@ -21,6 +21,7 @@ function precache() {
 	  './index.html',
 	  './manifest.json',
 	  './bitOxide.MarioWiiPowerup.Javascript.min.js',
+	  './img/toad.png',
 	  './img/bg.png',
 	  './img/bowser.png',
 	  './img/bullet.png',
