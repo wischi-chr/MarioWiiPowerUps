@@ -63,7 +63,7 @@ namespace bitOxide.MarioWiiPowerup.Javascript
             iis.RegisterIcon(Item.IceFlower, "img/iceflower.png");
             iis.RegisterIcon(Item.Mini, "img/mini.png");
             iis.RegisterIcon(Item.Mushroom, "img/mushroom.png");
-            iis.RegisterIcon(Item.Penguin, "img/pinguin.png");
+            iis.RegisterIcon(Item.Penguin, "img/penguin.png");
             iis.RegisterIcon(Item.Star, "img/star.png");
 
             iis.RegisterIcon("bullet", "img/bullet.png");
