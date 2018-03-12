@@ -14,7 +14,9 @@ self.addEventListener('fetch', function(evt) {
 function precache() {
   return caches.open(CACHE).then(function (cache) {
     return cache.addAll([
-      './bridge.meta.min.js',
+	  './init-service-worker.js',
+      './bridge.min.js',
+	  './bridge.meta.min.js',
       './imgscale.js',
 	  './index.html',
 	  './manifest.json',
