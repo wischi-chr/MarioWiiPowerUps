@@ -17,6 +17,8 @@ namespace bitOxide.MarioWiiPowerup.Javascript
         readonly ItemImageStore itemImages = ItemImageStore.GetDefault();
         readonly MainPanel panelViewModel = new MainPanel();
         readonly HTMLImageElement imgEl;
+        readonly HTMLImageElement toad;
+        bool helpActive = false;
 
         public App(HTMLCanvasElement screen)
         {
@@ -25,6 +27,7 @@ namespace bitOxide.MarioWiiPowerup.Javascript
             ctx.ImageSmoothingEnabled = true;
 
             imgEl = new HTMLImageElement() { Src = "img/bg.png" };
+            toad = new HTMLImageElement() { Src = "img/toad.png" };
 
             screen.AddEventListener(EventType.Click, Clicked);
             panelViewModel.FocusBestPosition();
@@ -46,26 +49,33 @@ namespace bitOxide.MarioWiiPowerup.Javascript
                     {
                         if (row == 0)
                         {
-                            panelViewModel.ResetBoardInfos();
+                            if (!helpActive)
+                                panelViewModel.ResetBoardInfos();
                         }
                         else if (row == 1)
                         {
-                            panelViewModel.RemoveFocusedItem();
+                            if (!helpActive)
+                                panelViewModel.RemoveFocusedItem();
                         }
                         else
                         {
+                            helpActive = !helpActive;
                             //panelViewModel.FocusBestPosition();
                         }
                     }
                     else if (col >= offsetBoardLeftCols && col <= (5 + offsetBoardLeftCols) && row >= 0 && row <= 2)
                     {
-                        var c = col - offsetBoardLeftCols;
-                        var posId = row * 6 + c;
-                        panelViewModel.FocusPosition(posId);
+                        if (!helpActive)
+                        {
+                            var c = col - offsetBoardLeftCols;
+                            var posId = row * 6 + c;
+                            panelViewModel.FocusPosition(posId);
+                        }
                     }
                     else if (row == 3)
                     {
-                        panelViewModel.ClickItem(itemButtons[col]);
+                        if (!helpActive)
+                            panelViewModel.ClickItem(itemButtons[col]);
                     }
                     Draw();
                 }
@@ -190,7 +200,7 @@ namespace bitOxide.MarioWiiPowerup.Javascript
 
         public void Draw()
         {
-            if (!itemImages.LoadCompleted || !imgEl.Complete)
+            if (!itemImages.LoadCompleted || !imgEl.Complete || !toad.Complete)
             {
                 Window.SetTimeout(Draw, 50);
                 return;
@@ -212,12 +222,8 @@ namespace bitOxide.MarioWiiPowerup.Javascript
             ctx.Scale(boxScale, boxScale);
 
             DrawBoard();
+
             ctx.Restore();
-        }
-
-        private void DrawHelpText()
-        {
-
         }
 
         private void DrawNumberOfSolutions()
@@ -293,6 +299,18 @@ namespace bitOxide.MarioWiiPowerup.Javascript
                 ctx.Restore();
             }
 
+            if (helpActive)
+                DrawHelpOverlay();
+
+
+            {
+                var y = 2;
+                ctx.Save();
+                ctx.Translate(8 * distFactor, y * distFactor);
+                DrawButton(itemImages.GetIcon(actionIcons[y]), null, whitebghide: true);
+                ctx.Restore();
+            }
+
             ctx.Restore();
         }
 
@@ -337,6 +355,51 @@ namespace bitOxide.MarioWiiPowerup.Javascript
             }
 
             DrawButtonBorder(bc);
+        }
+
+        private void DrawHelpOverlay()
+        {
+            ctx.Save();
+            ctx.Save();
+            ctx.ResetTransform();
+            ctx.FillStyle = "white";
+            ctx.GlobalAlpha = 0.5f;
+            ctx.FillRect(0, 0, canvasScreen.Width, canvasScreen.Height);
+            ctx.Restore();
+
+            var width = 1.0;
+            var height = width / 194 * 300;
+            ctx.DrawImage(toad, 0, 0, width, height);
+
+            var oT = offsetTop / boxScale;
+            var oL = offsetLeft / boxScale;
+
+            ctx.RoundedRectPath(1 + distA, 0, distA * 6 + 7, 3 + distA * 2, 0.2);
+            //ctx.RoundedRectPath(0, 0, 1, 1, 0.2);
+            ctx.GlobalAlpha = 1f;
+            ctx.FillStyle = "white";
+            ctx.Fill();
+            ctx.LineWidth = 0.05;
+            ctx.StrokeStyle = "black";
+            ctx.Stroke();
+
+            ctx.Scale(1.0 / boxScale, 1.0 / boxScale);
+            ctx.FillStyle = "black";
+            var fontsize = 0.25 * boxScale;
+            ctx.Font = $"{fontsize.ToString(CultureInfo.InvariantCulture)}px Arial";
+
+            var left = (int)Math.Round((1 + distA * 1.8) * boxScale);
+            var top = (int)Math.Round(0.5 * boxScale);
+
+            var txt = "Hello.\n\nThis tool can help you solve power-up panels. Open the selected field\nin-game and select the item you get in this app - repeat until the correct\nboard is found (and shown).\n\nUse the bullet to undo a step and POW to reset the board.\n\nIf the icons turn grey no solution was found.";
+            var lines = txt.Split('\n');
+            var lineheight = (int)Math.Round(0.3 * boxScale);
+
+            for (int i = 0; i < lines.Length; i++)
+                ctx.FillText(lines[i], left, top + lineheight * i);
+
+
+            ctx.Restore();
         }
 
         private void DrawImage(ScaledImage img, bool blackWhite)
