@@ -1,3 +1,5 @@
+//Source: https://stackoverflow.com/questions/18922880/html5-canvas-resize-downscale-image-high-quality
+
 // scales the image by (float) scale < 1
 // returns a canvas containing the scaled image.
 function downScaleImage(img, scale) {
