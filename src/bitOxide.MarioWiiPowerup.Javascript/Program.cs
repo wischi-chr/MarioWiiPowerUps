@@ -40,7 +40,7 @@ namespace bitOxide.MarioWiiPowerup.Javascript
             app.ResizeCalc();
             app.Draw();
 
-            
+            Script.Call("init_serviceworker");
 
             Window.AddEventListener(EventType.Resize, () =>
             {
