@@ -1,5 +1,5 @@
 # MarioWiiPowerUps
-A little web tool that identify power-up panels in New Super Mario Bros Wii
+A little web tool to identify power-up panels in *New Super Mario Bros. Wii.*
 
 ![UI Screenshot](https://github.com/wischi-chr/MarioWiiPowerUps/blob/master/res/MarioWiiUI.png)
 
