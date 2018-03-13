@@ -16,7 +16,7 @@ namespace bitOxide.MarioWiiPowerup.Javascript
 
         readonly ItemImageStore itemImages = ItemImageStore.GetDefault();
         readonly MainPanel panelViewModel = new MainPanel();
-        readonly HTMLImageElement imgEl;
+        readonly HTMLImageElement bgImage;
         readonly HTMLImageElement toad;
         bool helpActive = false;
 
@@ -26,7 +26,7 @@ namespace bitOxide.MarioWiiPowerup.Javascript
             ctx = screen.GetContext(CanvasTypes.CanvasContext2DType.CanvasRenderingContext2D);
             ctx.ImageSmoothingEnabled = true;
 
-            imgEl = new HTMLImageElement() { Src = "img/bg.png" };
+            bgImage = new HTMLImageElement() { Src = "img/bg.png" };
             toad = new HTMLImageElement() { Src = "img/toad.png" };
 
             screen.AddEventListener(EventType.Click, Clicked);
@@ -156,9 +156,13 @@ namespace bitOxide.MarioWiiPowerup.Javascript
         private double offsetLeft = 30;
         private double offsetTop = 30;
         private double boxScale = 167;
-
         private double devicePixelRatio = 0;
 
+        private double scaleBg = 0;
+        private double offsetLeftBg = 0;
+        private double offsetTopBg = 0;
+        private const double bgImageWidth = 1375;
+        private const double bgImageHeight = 500;
 
         private const double iconMargin = 0.1;
         private const double iconSize = 1 - 2 * iconMargin;
@@ -188,8 +192,17 @@ namespace bitOxide.MarioWiiPowerup.Javascript
             var baseScale = Math.Min(scaleX, scaleY);
             boxScale = baseScale * devicePixelRatio;
 
+
+
             canvasScreen.Width = (int)Math.Round(Window.InnerWidth * devicePixelRatio);
             canvasScreen.Height = (int)Math.Round(Window.InnerHeight * devicePixelRatio);
+
+            var bgScaleX = canvasScreen.Width / bgImageWidth;
+            var bgScaleY = canvasScreen.Height / bgImageHeight;
+            scaleBg = Math.Max(bgScaleX, bgScaleY);
+
+            offsetLeftBg = (canvasScreen.Width - scaleBg * bgImageWidth) / 2;
+            offsetTopBg = (canvasScreen.Height - scaleBg * bgImageHeight) / 2;
 
             offsetTop = (canvasScreen.Height - boxScale * realHeight) / 2 + distA / 2 * boxScale;
             offsetLeft = (canvasScreen.Width - boxScale * realWidth) / 2 + distA / 2 * boxScale;
@@ -200,7 +213,7 @@ namespace bitOxide.MarioWiiPowerup.Javascript
 
         public void Draw()
         {
-            if (!itemImages.LoadCompleted || !imgEl.Complete || !toad.Complete)
+            if (!itemImages.LoadCompleted || !bgImage.Complete || !toad.Complete)
             {
                 Window.SetTimeout(Draw, 50);
                 return;
@@ -213,7 +226,7 @@ namespace bitOxide.MarioWiiPowerup.Javascript
 
             ctx.Save();
             ctx.GlobalAlpha = 0.6f;
-            ctx.DrawImage(imgEl, 0, 0, canvasScreen.Width, canvasScreen.Height);
+            ctx.DrawImage(bgImage, offsetLeftBg, offsetTopBg, bgImage.Width * scaleBg, bgImage.Height * scaleBg);
             ctx.GlobalAlpha = 1f;
             ctx.Restore();
 
