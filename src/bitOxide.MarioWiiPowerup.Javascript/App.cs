@@ -272,21 +272,33 @@ namespace bitOxide.MarioWiiPowerup.Javascript
                     var icon = itemImages.GetIcon(panelViewModel.GetItemFromPosition(posId));
                     var iconWasSet = icon != null;
 
-                    var safeSpot = panelViewModel.IsPositionSafe(posId) && !iconWasSet;
+                    var colorSafeSpot = panelViewModel.IsPositionSafe(posId) && !iconWasSet && solved == null;
 
                     var color = borderColorDefault;
 
-                    if (icon == null && solved != null)
+                    if (icon == null)
                     {
-                        //Get icon from solution
-                        icon = itemImages.GetIcon(solved[posId]);
+                        if (solved != null)
+                        {
+                            //Get icon from solution
+                            icon = itemImages.GetIcon(solved[posId]);
+                        }
+                        else
+                        {
+                            icon = itemImages.GetIcon(panelViewModel.GetDerivedItem(posId));
+
+                            if (icon != null)
+                            {
+                                colorSafeSpot = false;
+                            }
+                        }
                     }
 
                     if (focused)
                     {
                         color = borderColorFocus;
                     }
-                    else if (safeSpot && solved == null)
+                    else if (colorSafeSpot)
                     {
                         color = borderColorSafeSpot;
                     }
@@ -300,7 +312,7 @@ namespace bitOxide.MarioWiiPowerup.Javascript
                         iconWasSet ? 1.0 : 0.7,
                         bw: noMatches,
                         isSelected: focused,
-                        isSafeSpot: safeSpot && solved == null
+                        isSafeSpot: colorSafeSpot
                     );
 
                     ctx.Restore();

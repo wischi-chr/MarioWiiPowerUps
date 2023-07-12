@@ -12,6 +12,7 @@ namespace bitOxide.MarioWiiPowerup.Core.ViewModel
         private int focusedItem = 0;
         private readonly bool[] noBowserInPosition = new bool[SuperMarioWiiConstants.ItemsPerBoard];
 
+        private readonly Item[] derivedItems = new Item[SuperMarioWiiConstants.ItemsPerBoard];
         private readonly ISuggestionStrategy strat = new FindSolutionWithLeastInputs4();
         private readonly Stack<Item[]> itemHistory = new Stack<Item[]>();
 
@@ -19,6 +20,11 @@ namespace bitOxide.MarioWiiPowerup.Core.ViewModel
         public Board SolvedBoard => currentSolution;
         public int FocusedPositionId => focusedItem;
         public int MatchingBoardCount { get; private set; }
+
+        public Item GetDerivedItem(int pos)
+        {
+            return derivedItems[pos];
+        }
 
         public bool IsPositionSafe(int pos)
         {
@@ -125,18 +131,26 @@ namespace bitOxide.MarioWiiPowerup.Core.ViewModel
             MatchingBoardCount = allMatchingBoards.Length;
             currentSolution = allMatchingBoards.Length == 1 ? allMatchingBoards[0] : null;
 
+            // set derived items to null
+            for (int i = 0; i < SuperMarioWiiConstants.ItemsPerBoard; i++)
+            {
+                derivedItems[i] = null;
+            }
+
             // Update bowser safe spots
             if (allMatchingBoards.Length > 0)
             {
-                // set all states to "safe"
                 for (int i = 0; i < SuperMarioWiiConstants.ItemsPerBoard; i++)
                 {
+                    // set all states to "safe"
                     noBowserInPosition[i] = true;
+
+                    // find out if items are the same everywhere
+                    derivedItems[i] = AllSameOrNull(allMatchingBoards.Select(b => b[i]), null);
                 }
 
                 foreach (var b in allMatchingBoards)
                 {
-
                     for (int i = 0; i < SuperMarioWiiConstants.ItemsPerBoard; i++)
                     {
                         if (b[i].IsBad)
@@ -155,6 +169,22 @@ namespace bitOxide.MarioWiiPowerup.Core.ViewModel
                     noBowserInPosition[i] = false;
                 }
             }
+        }
+
+        private static T AllSameOrNull<T>(IEnumerable<T> elements, T fallback)
+        {
+            var res = elements.Distinct().Take(2).ToList();
+
+            if (res.Count == 1)
+            {
+                return res[0];
+            }
+            else if (res.Count == 2 && res[0].Equals(res[1]))
+            {
+                return res[0];
+            }
+
+            return fallback;
         }
     }
 }
