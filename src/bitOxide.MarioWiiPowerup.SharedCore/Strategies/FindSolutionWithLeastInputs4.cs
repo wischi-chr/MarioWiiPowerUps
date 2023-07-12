@@ -2,7 +2,7 @@
 
 namespace bitOxide.MarioWiiPowerup.Core.Strategies
 {
-    public class FindSolutionWithLeastInputs : ISuggestionStrategy
+    public class FindSolutionWithLeastInputs4 : ISuggestionStrategy
     {
         public int? SuggestNextItemPosition(Board[] boards, Item[] filledItems)
         {
@@ -14,12 +14,18 @@ namespace bitOxide.MarioWiiPowerup.Core.Strategies
                 return null;
             }
 
-            var bowserProp = allMatchingBoards.GetGoodPositionScore();
-            var duplicates = allMatchingBoards.GetDiversityScore();
+            if (filledItems.All(i => i == null))
+            {
+                // hardcode the first suggestion to be at the bottom and a low risk of being a bowser.
+                return 14;
+            }
 
+            var duplicates = allMatchingBoards.GetInformationContent();
+            var bowserPenality = allMatchingBoards.GetBowserFieldPenalty2();
             var instantLose = allMatchingBoards.GetInstantLoseScore(filledItems);
             var nonOpen = BoardScoreExtensions.GetNonOpenPositions(filledItems);
-            var props = BoardScoreExtensions.MergeScores(nonOpen, instantLose, duplicates);
+
+            var props = BoardScoreExtensions.MergeScores(nonOpen, instantLose, duplicates, bowserPenality);
 
             // determine lowest risk factor
             double maxProp = -1;

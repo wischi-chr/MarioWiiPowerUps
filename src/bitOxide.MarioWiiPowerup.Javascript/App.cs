@@ -10,15 +10,15 @@ namespace bitOxide.MarioWiiPowerup.Javascript
 {
     public class App
     {
-        readonly HTMLCanvasElement canvasScreen;
-        readonly CanvasRenderingContext2D ctx;
-        readonly Random rnd = new Random();
+        private readonly HTMLCanvasElement canvasScreen;
+        private readonly CanvasRenderingContext2D ctx;
 
-        readonly ItemImageStore itemImages = ItemImageStore.GetDefault();
-        readonly MainPanel panelViewModel = new MainPanel();
-        readonly HTMLImageElement bgImage;
-        readonly HTMLImageElement toad;
-        bool helpActive = false;
+        private readonly ItemImageStore itemImages = ItemImageStore.GetDefault();
+        private readonly MainPanel panelViewModel = new MainPanel();
+        private readonly HTMLImageElement bgImage;
+        private readonly HTMLImageElement toad;
+
+        private bool helpActive = false;
 
         public App(HTMLCanvasElement screen)
         {
@@ -177,6 +177,7 @@ namespace bitOxide.MarioWiiPowerup.Javascript
         private readonly string borderColorDefault = "#ADD8E6";
         private readonly string borderColorSet = "#191970";
         private readonly string borderColorFocus = "#483D8B";
+        private readonly string borderColorSafeSpot = "#7f77ae";
         //private readonly string borderColorAction = "#555";
         private readonly string borderColorAction = "#FFF";
 
@@ -261,38 +262,50 @@ namespace bitOxide.MarioWiiPowerup.Javascript
 
             //Draw board
             for (int y = 0; y < 3; y++)
+            {
                 for (int x = 0; x < 6; x++)
                 {
                     var posId = y * 6 + x;
+
                     var focused = panelViewModel.FocusedPositionId == posId;
+
                     var icon = itemImages.GetIcon(panelViewModel.GetItemFromPosition(posId));
                     var iconWasSet = icon != null;
 
+                    var safeSpot = panelViewModel.IsPositionSafe(posId) && !iconWasSet;
+
                     var color = borderColorDefault;
-                    if (iconWasSet)
-                    {
-                        //if (icon.BlackBackground) color = "#333";
-                        //else
-                        //color = "#483D8B";
-                    }
 
                     if (icon == null && solved != null)
                     {
                         //Get icon from solution
                         icon = itemImages.GetIcon(solved[posId]);
-                        //if (icon.BlackBackground) color = "#666";
-                        //else color = borderColorDefault;
                     }
 
                     if (focused)
+                    {
                         color = borderColorFocus;
+                    }
+                    else if (safeSpot && solved == null)
+                    {
+                        color = borderColorSafeSpot;
+                    }
 
                     ctx.Save();
                     ctx.Translate((offsetBoardLeftCols + x) * distFactor, y * distFactor);
-                    DrawButton(icon, color, iconWasSet ? 1.0 : 0.7, bw: noMatches);
-                    //DrawButton(icon, color, iconWasSet ? 1.0 : 1.0, bw: noMatches);
+
+                    DrawButton(
+                        icon,
+                        color,
+                        iconWasSet ? 1.0 : 0.7,
+                        bw: noMatches,
+                        isSelected: focused,
+                        isSafeSpot: safeSpot && solved == null
+                    );
+
                     ctx.Restore();
                 }
+            }
 
             //Item selection
             for (int x = 0; x < 9; x++)
@@ -327,18 +340,38 @@ namespace bitOxide.MarioWiiPowerup.Javascript
             ctx.Restore();
         }
 
-        private void DrawButton(ScaledImage img, string borderColor, double alpha = 1, bool bw = false, bool whitebghide = false)
+        private void DrawButton(
+            ScaledImage img,
+            string borderColor,
+            double alpha = 1,
+            bool bw = false,
+            bool whitebghide = false,
+            bool isSafeSpot = false,
+            bool isSelected = false
+        )
         {
             var drawBlack = img != null && img.BlackBackground;
+
             if (drawBlack)
+            {
                 DrawButtonFill("black");
+            }
             else
             {
                 if (!whitebghide)
                 {
                     ctx.Save();
                     ctx.GlobalAlpha = (float)0.5;
-                    DrawButtonFill("white");
+
+                    if (!isSafeSpot)
+                    {
+                        DrawButtonFill("white");
+                    }
+                    else
+                    {
+                        DrawButtonFill(borderColorSafeSpot);
+                    }
+
                     ctx.GlobalAlpha = (float)1;
                     ctx.Restore();
                 }

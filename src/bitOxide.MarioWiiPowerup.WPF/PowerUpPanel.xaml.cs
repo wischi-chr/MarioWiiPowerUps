@@ -130,8 +130,8 @@ namespace bitOxide.MarioWiiPowerup.WPF
 
             var qui = new Func<double, double>((double c) => { return c * (item_size + item_offset) + item_offset; });
 
-
             for (int x = 0; x < 6; x++)
+            {
                 for (int y = 0; y < 3; y++)
                 {
                     var num = y * 6 + x;
@@ -140,17 +140,29 @@ namespace bitOxide.MarioWiiPowerup.WPF
                     var rect = new Rect(xx, yy, item_size, item_size);
                     itemPanel[num] = rect;
                     var icon = GetIconFromItem(viewModelPanel.GetItemFromPosition(num));
-                    var half = false;
+                    var halfTransparent = false;
+
                     if (icon == null && viewModelPanel.SolvedBoard != null)
                     {
                         icon = GetIconFromItem(viewModelPanel.SolvedBoard[num]);
-                        half = true;
+                        halfTransparent = true;
                     }
 
-                    DrawItemFrame(dc, xx, yy, item_size, num == viewModelPanel.FocusedPositionId, icon, half);
+                    DrawItemFrame(
+                        dc,
+                        xx,
+                        yy,
+                        item_size,
+                        num == viewModelPanel.FocusedPositionId,
+                        icon,
+                        halfTransparent,
+                        viewModelPanel.IsPositionSafe(num)
+                    );
                 }
+            }
 
             for (int x = 0; x < 4; x++)
+            {
                 for (int y = 0; y < 3; y++)
                 {
                     var num = y * 4 + x;
@@ -158,8 +170,19 @@ namespace bitOxide.MarioWiiPowerup.WPF
                     var yy = qui(y) + rand;
                     var rect = new Rect(xx, yy, item_size, item_size);
                     sideSelect[num] = rect;
-                    DrawItemFrame(dc, xx, yy, item_size, false, Order[y * 4 + x]);
+
+                    DrawItemFrame(
+                        dc,
+                        xx,
+                        yy,
+                        item_size,
+                        selected: false,
+                        Order[y * 4 + x],
+                        halfTransparent: false,
+                        isSafeSpot: false
+                    );
                 }
+            }
 
             //dc.DrawRoundedRectangle(Brushes.WhiteSmoke, p, new Rect(offset, 2 * offset + height, width_main, low_height), rounding, rounding);
 
@@ -245,23 +268,43 @@ namespace bitOxide.MarioWiiPowerup.WPF
         }
 
 
-        private void DrawItemFrame(DrawingContext dc, double x, double y, double size, bool selected, Icon? icon, bool HalfTrans = false)
+        private void DrawItemFrame(
+            DrawingContext dc,
+            double x,
+            double y,
+            double size,
+            bool selected,
+            Icon? icon,
+            bool halfTransparent,
+            bool isSafeSpot
+        )
         {
             double rounding = size / 10.0;
             double thickness = Math.Max(1, size / 20.0);
             double img_offset = size / 5.0;
 
             Brush Background = Brushes.White;
-            Pen p = new Pen(selected ? Brushes.Red : Brushes.LightBlue, thickness);
+            Brush penBrush = Brushes.LightBlue;
+
+            if (selected)
+            {
+                penBrush = Brushes.Red;
+            }
+            else if (isSafeSpot)
+            {
+                penBrush = Brushes.Green;
+            }
+
+            Pen p = new Pen(penBrush, thickness);
 
             dc.DrawRoundedRectangle(Background, p, new Rect(x, y, size, size), rounding, rounding);
 
             if (icon != null && imgCache.ContainsKey(icon.Value))
             {
                 var bi = imgCache[icon.Value];
-                if (HalfTrans) dc.PushOpacity(0.5);
+                if (halfTransparent) dc.PushOpacity(0.5);
                 dc.DrawImage(bi, new Rect(x + img_offset, y + img_offset, size - 2 * img_offset, size - 2 * img_offset));
-                if (HalfTrans) dc.Pop();
+                if (halfTransparent) dc.Pop();
             }
         }
 

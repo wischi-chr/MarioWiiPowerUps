@@ -2,7 +2,7 @@
 
 namespace bitOxide.MarioWiiPowerup.Core.Strategies
 {
-    public class FindSolutionWithLeastInputs : ISuggestionStrategy
+    public class FindSolutionWithLeastInputs2 : ISuggestionStrategy
     {
         public int? SuggestNextItemPosition(Board[] boards, Item[] filledItems)
         {
@@ -14,9 +14,7 @@ namespace bitOxide.MarioWiiPowerup.Core.Strategies
                 return null;
             }
 
-            var bowserProp = allMatchingBoards.GetGoodPositionScore();
-            var duplicates = allMatchingBoards.GetDiversityScore();
-
+            var duplicates = allMatchingBoards.GetInformationContent();
             var instantLose = allMatchingBoards.GetInstantLoseScore(filledItems);
             var nonOpen = BoardScoreExtensions.GetNonOpenPositions(filledItems);
             var props = BoardScoreExtensions.MergeScores(nonOpen, instantLose, duplicates);

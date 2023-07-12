@@ -46,19 +46,28 @@ namespace bitOxide.MarioWiiPowerup.Core
             var itemRawSource = LoadRawBoardInfos();
 
             if (itemRawSource.Length != totalNumberOfItems)
+            {
                 throw new NotSupportedException();
+            }
 
             var worlds = new WorldBoardCollection[SuperMarioWiiConstants.WorldCount];
+
             for (int world = 0; world < SuperMarioWiiConstants.WorldCount; world++)
             {
                 var boards = new Board[SuperMarioWiiConstants.BoardsPerWorld];
+
                 for (int board = 0; board < SuperMarioWiiConstants.BoardsPerWorld; board++)
                 {
                     var items = new Item[SuperMarioWiiConstants.ItemsPerBoard];
+
                     for (int item = 0; item < SuperMarioWiiConstants.ItemsPerBoard; item++)
+                    {
                         items[item] = GetItemFromChar(itemRawSource[itemCnt++]);
+                    }
+
                     boards[board] = new Board(items);
                 }
+
                 worlds[world] = new WorldBoardCollection(boards);
             }
 

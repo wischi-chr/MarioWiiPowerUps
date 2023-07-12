@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace bitOxide.MarioWiiPowerup.Core
+﻿namespace bitOxide.MarioWiiPowerup.Core
 {
     public class Item
     {
@@ -28,8 +23,16 @@ namespace bitOxide.MarioWiiPowerup.Core
 
         public static bool operator ==(Item a, Item b)
         {
-            if (ReferenceEquals(a, b)) return true;
-            if (((object)a == null) || ((object)b == null)) return false;
+            if (ReferenceEquals(a, b))
+            {
+                return true;
+            }
+
+            if (ReferenceEquals(a, null) || ReferenceEquals(b, null))
+            {
+                return false;
+            }
+
             return a.Name == b.Name;
         }
 

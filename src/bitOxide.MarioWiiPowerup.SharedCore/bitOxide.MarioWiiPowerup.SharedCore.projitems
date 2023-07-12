@@ -14,6 +14,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)BoardExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GlobalBoardCollection.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Item.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Strategies\BoardScoreExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Strategies\FindSolutionWithLeastInputs4.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Strategies\FindSolutionWithLeastInputs3.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Strategies\FindSolutionWithLeastInputs2.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Strategies\FindSolutionWithLeastInputs.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Strategies\ISuggestionStrategy.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SuperMarioWiiBoards.cs" />

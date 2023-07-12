@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace bitOxide.MarioWiiPowerup.Core
 {
@@ -13,7 +11,10 @@ namespace bitOxide.MarioWiiPowerup.Core
         public GlobalBoardCollection(WorldBoardCollection[] worldBoards)
         {
             if (worldBoards == null || worldBoards.Length != 9)
+            {
                 throw new ArgumentOutOfRangeException();
+            }
+
             this.worldBoards = (WorldBoardCollection[])worldBoards.Clone();
         }
 
@@ -23,18 +24,24 @@ namespace bitOxide.MarioWiiPowerup.Core
         public IEnumerator<WorldBoardCollection> GetEnumerator()
         {
             foreach (var wbc in worldBoards)
+            {
                 yield return wbc;
+            }
         }
 
-        IEnumerator IEnumerable.GetEnumerator() => this.GetEnumerator();
+        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 
         public IEnumerable<Board> AllBoards
         {
             get
             {
                 foreach (var world in worldBoards)
+                {
                     foreach (var board in world)
+                    {
                         yield return board;
+                    }
+                }
             }
         }
     }

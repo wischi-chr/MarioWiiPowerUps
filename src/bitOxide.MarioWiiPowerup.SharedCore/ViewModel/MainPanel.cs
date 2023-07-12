@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using bitOxide.MarioWiiPowerup.Core.Strategies;
 
 namespace bitOxide.MarioWiiPowerup.Core.ViewModel
@@ -11,14 +10,20 @@ namespace bitOxide.MarioWiiPowerup.Core.ViewModel
         private readonly Item[] itemInformations = new Item[SuperMarioWiiConstants.ItemsPerBoard];
         private readonly Board[] allBoards = SuperMarioWiiBoards.DefaultBoardSet.AllBoards.ToArray();
         private int focusedItem = 0;
+        private readonly bool[] noBowserInPosition = new bool[SuperMarioWiiConstants.ItemsPerBoard];
 
-        private readonly ISuggestionStrategy strat = new FindSolutionWithLeastInputs3();
+        private readonly ISuggestionStrategy strat = new FindSolutionWithLeastInputs4();
         private readonly Stack<Item[]> itemHistory = new Stack<Item[]>();
 
         private Board currentSolution = null;
         public Board SolvedBoard => currentSolution;
         public int FocusedPositionId => focusedItem;
         public int MatchingBoardCount { get; private set; }
+
+        public bool IsPositionSafe(int pos)
+        {
+            return noBowserInPosition[pos];
+        }
 
         public Item GetItemFromPosition(int pos)
         {
@@ -33,31 +38,43 @@ namespace bitOxide.MarioWiiPowerup.Core.ViewModel
         private void SaveCurrentStateAsHistory()
         {
             var entry = new Item[SuperMarioWiiConstants.ItemsPerBoard];
+
             for (int i = 0; i < SuperMarioWiiConstants.ItemsPerBoard; i++)
+            {
                 entry[i] = itemInformations[i];
+            }
+
             itemHistory.Push(entry);
         }
 
         private void RestoreHistoryState()
         {
-            if (itemHistory.Count < 1) return;
+            if (itemHistory.Count < 1)
+            {
+                return;
+            }
+
             var lastEntry = itemHistory.Pop();
+
             for (int i = 0; i < SuperMarioWiiConstants.ItemsPerBoard; i++)
+            {
                 itemInformations[i] = lastEntry[i];
+            }
         }
 
         public void ResetBoardInfos()
         {
             for (int i = 0; i < itemInformations.Length; i++)
+            {
                 itemInformations[i] = null;
+            }
+
             itemHistory.Clear();
             RecalcAll();
         }
 
         public void RemoveFocusedItem()
         {
-            //itemInformations[focusedItem] = null;
-            //RecalcAll(reposition: false);
             RestoreHistoryState();
             RecalcAll();
         }
@@ -65,13 +82,22 @@ namespace bitOxide.MarioWiiPowerup.Core.ViewModel
         public void FocusBestPosition()
         {
             var res = strat.SuggestNextItemPosition(allBoards, itemInformations);
-            if (res == null) return;
+
+            if (res == null)
+            {
+                return;
+            }
+
             focusedItem = res.Value;
         }
 
         public void FocusPosition(int pos)
         {
-            if (pos < 0 || pos >= SuperMarioWiiConstants.ItemsPerBoard) throw new IndexOutOfRangeException();
+            if (pos < 0 || pos >= SuperMarioWiiConstants.ItemsPerBoard)
+            {
+                throw new IndexOutOfRangeException();
+            }
+
             focusedItem = pos;
         }
 
@@ -84,17 +110,51 @@ namespace bitOxide.MarioWiiPowerup.Core.ViewModel
 
         private void RecalcAll(bool reposition = true)
         {
-            FindPossibleSolutions();
+            FindPossibleSolutionsAndSafeSpots();
+
             if (reposition)
+            {
                 FocusBestPosition();
+            }
         }
 
-        private void FindPossibleSolutions()
+        private void FindPossibleSolutionsAndSafeSpots()
         {
             var allMatchingBoards = allBoards.Where(x => x.Matches(itemInformations)).ToArray();
+
             MatchingBoardCount = allMatchingBoards.Length;
             currentSolution = allMatchingBoards.Length == 1 ? allMatchingBoards[0] : null;
-        }
 
+            // Update bowser safe spots
+            if (allMatchingBoards.Length > 0)
+            {
+                // set all states to "safe"
+                for (int i = 0; i < SuperMarioWiiConstants.ItemsPerBoard; i++)
+                {
+                    noBowserInPosition[i] = true;
+                }
+
+                foreach (var b in allMatchingBoards)
+                {
+
+                    for (int i = 0; i < SuperMarioWiiConstants.ItemsPerBoard; i++)
+                    {
+                        if (b[i].IsBad)
+                        {
+                            // if bowser is found in spot, than mark as not safe
+                            noBowserInPosition[i] = false;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                // set all states to "not safe"
+                for (int i = 0; i < SuperMarioWiiConstants.ItemsPerBoard; i++)
+                {
+                    noBowserInPosition[i] = false;
+                }
+            }
+        }
     }
 }

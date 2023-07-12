@@ -38,19 +38,47 @@ namespace bitOxide.MarioWiiPowerup.Tests
             TestStrategy(strat);
         }
 
+        [Fact]
+        public void TestDefaultStrat4()
+        {
+            var strat = new FindSolutionWithLeastInputs4();
+            TestStrategy(strat);
+        }
+
         public void TestStrategy(ISuggestionStrategy strategy)
         {
             var allBoards = SuperMarioWiiBoards.DefaultBoardSet.AllBoards.ToArray();
             var suggestions = new List<int>();
 
             var itemCounts = new Dictionary<string, int>();
+
             foreach (var b in allBoards)
+            {
                 suggestions.Add(TestBoard(strategy, b, allBoards, itemCounts));
+            }
 
             output.WriteLine($"Result: Min={suggestions.Min()}, Max={suggestions.Max()}, Avg={suggestions.Average()}");
+            var suggestionDictionary = new Dictionary<int, int>();
 
-            foreach (var k in itemCounts.OrderByDescending(a => a.Value))
-                output.WriteLine(k.Key + " = " + k.Value);
+            foreach (var suggestion in suggestions)
+            {
+                if (!suggestionDictionary.ContainsKey(suggestion))
+                {
+                    suggestionDictionary[suggestion] = 0;
+                }
+
+                suggestionDictionary[suggestion]++;
+            }
+
+            foreach (var suggestion in suggestionDictionary.Keys.OrderByDescending(x => x))
+            {
+                output.WriteLine($"  [{suggestion}]: {suggestionDictionary[suggestion]}");
+            }
+
+            output.WriteLine("");
+
+            var bowserSum = itemCounts.Where(i => i.Key.Contains("Bowser")).Sum(i => i.Value);
+            output.WriteLine($"Bowser Sum: {bowserSum}");
         }
 
         public int TestBoard(ISuggestionStrategy strategy, Board board, Board[] allBoards, IDictionary<string, int> itemCounts)
