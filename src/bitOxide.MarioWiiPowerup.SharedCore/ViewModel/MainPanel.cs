@@ -13,6 +13,8 @@ namespace bitOxide.MarioWiiPowerup.Core.ViewModel
         private readonly bool[] noBowserInPosition = new bool[SuperMarioWiiConstants.ItemsPerBoard];
 
         private readonly Item[] derivedItems = new Item[SuperMarioWiiConstants.ItemsPerBoard];
+        private readonly bool[] isPositionBad = new bool[SuperMarioWiiConstants.ItemsPerBoard];
+
         private readonly ISuggestionStrategy strat = new FindSolutionWithLeastInputs4();
         private readonly Stack<Item[]> itemHistory = new Stack<Item[]>();
 
@@ -24,6 +26,11 @@ namespace bitOxide.MarioWiiPowerup.Core.ViewModel
         public Item GetDerivedItem(int pos)
         {
             return derivedItems[pos];
+        }
+
+        public bool IsPositionBad(int pos)
+        {
+            return isPositionBad[pos];
         }
 
         public bool IsPositionSafe(int pos)
@@ -135,6 +142,7 @@ namespace bitOxide.MarioWiiPowerup.Core.ViewModel
             for (int i = 0; i < SuperMarioWiiConstants.ItemsPerBoard; i++)
             {
                 derivedItems[i] = null;
+                isPositionBad[i] = false;
             }
 
             // Update bowser safe spots
@@ -146,7 +154,8 @@ namespace bitOxide.MarioWiiPowerup.Core.ViewModel
                     noBowserInPosition[i] = true;
 
                     // find out if items are the same everywhere
-                    derivedItems[i] = AllSameOrNull(allMatchingBoards.Select(b => b[i]), null);
+                    derivedItems[i] = AllSameOrDefault(allMatchingBoards.Select(b => b[i]), null);
+                    isPositionBad[i] = AllSameOrDefault(allMatchingBoards.Select(b => b[i].IsBad), false);
                 }
 
                 foreach (var b in allMatchingBoards)
@@ -171,7 +180,7 @@ namespace bitOxide.MarioWiiPowerup.Core.ViewModel
             }
         }
 
-        private static T AllSameOrNull<T>(IEnumerable<T> elements, T fallback)
+        private static T AllSameOrDefault<T>(IEnumerable<T> elements, T fallback)
         {
             var res = elements.Distinct().Take(2).ToList();
 

@@ -176,8 +176,10 @@ namespace bitOxide.MarioWiiPowerup.Javascript
 
         private readonly string borderColorDefault = "#ADD8E6";
         private readonly string borderColorSet = "#191970";
-        private readonly string borderColorFocus = "#483D8B";
+        private readonly string borderColorFocus = "#3a316f";
         private readonly string borderColorSafeSpot = "#7f77ae";
+        private readonly string backgroundColorSafeSpot = "#7f77ae";
+
         //private readonly string borderColorAction = "#555";
         private readonly string borderColorAction = "#FFF";
 
@@ -275,6 +277,7 @@ namespace bitOxide.MarioWiiPowerup.Javascript
                     var colorSafeSpot = panelViewModel.IsPositionSafe(posId) && !iconWasSet && solved == null;
 
                     var color = borderColorDefault;
+                    var knownBad = panelViewModel.IsPositionBad(posId);
 
                     if (icon == null)
                     {
@@ -312,7 +315,8 @@ namespace bitOxide.MarioWiiPowerup.Javascript
                         iconWasSet ? 1.0 : 0.7,
                         bw: noMatches,
                         isSelected: focused,
-                        isSafeSpot: colorSafeSpot
+                        isSafeSpot: colorSafeSpot,
+                        forceBgBlack: knownBad
                     );
 
                     ctx.Restore();
@@ -359,10 +363,11 @@ namespace bitOxide.MarioWiiPowerup.Javascript
             bool bw = false,
             bool whitebghide = false,
             bool isSafeSpot = false,
-            bool isSelected = false
+            bool isSelected = false,
+            bool forceBgBlack = false
         )
         {
-            var drawBlack = img != null && img.BlackBackground;
+            var drawBlack = (img != null && img.BlackBackground) || forceBgBlack;
 
             if (drawBlack)
             {
@@ -381,7 +386,7 @@ namespace bitOxide.MarioWiiPowerup.Javascript
                     }
                     else
                     {
-                        DrawButtonFill(borderColorSafeSpot);
+                        DrawButtonFill(backgroundColorSafeSpot);
                     }
 
                     ctx.GlobalAlpha = (float)1;
