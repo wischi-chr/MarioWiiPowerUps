@@ -14,6 +14,7 @@ namespace bitOxide.MarioWiiPowerup.Core.ViewModel
 
         private readonly Item[] derivedItems = new Item[SuperMarioWiiConstants.ItemsPerBoard];
         private readonly bool[] isPositionBad = new bool[SuperMarioWiiConstants.ItemsPerBoard];
+        private readonly HashSet<Item> itemsInFocusedPosition = new HashSet<Item>();
 
         private readonly ISuggestionStrategy strat = new FindSolutionWithLeastInputs4();
         private readonly Stack<Item[]> itemHistory = new Stack<Item[]>();
@@ -22,6 +23,16 @@ namespace bitOxide.MarioWiiPowerup.Core.ViewModel
         public Board SolvedBoard => currentSolution;
         public int FocusedPositionId => focusedItem;
         public int MatchingBoardCount { get; private set; }
+
+        public bool IsItemInFocusedPosition(Item item)
+        {
+            if (item == null)
+            {
+                return false;
+            }
+
+            return itemsInFocusedPosition.Contains(item);
+        }
 
         public Item GetDerivedItem(int pos)
         {
@@ -98,10 +109,11 @@ namespace bitOxide.MarioWiiPowerup.Core.ViewModel
 
             if (res == null)
             {
+                RecalcAllowedItems();
                 return;
             }
 
-            focusedItem = res.Value;
+            FocusPosition(res.Value);
         }
 
         public void FocusPosition(int pos)
@@ -112,6 +124,7 @@ namespace bitOxide.MarioWiiPowerup.Core.ViewModel
             }
 
             focusedItem = pos;
+            RecalcAllowedItems();
         }
 
         public void ClickItem(Item item)
@@ -119,6 +132,29 @@ namespace bitOxide.MarioWiiPowerup.Core.ViewModel
             SaveCurrentStateAsHistory();
             itemInformations[focusedItem] = item;
             RecalcAll();
+        }
+
+        private void RecalcAllowedItems()
+        {
+            itemsInFocusedPosition.Clear();
+            var items = (Item[])itemInformations.Clone();
+            items[focusedItem] = null;
+
+            var allMatchingBoards = allBoards.Where(x => x.Matches(items)).ToArray();
+
+            if (allMatchingBoards.Length > 1)
+            {
+                foreach (var b in allMatchingBoards)
+                {
+                    for (int i = 0; i < SuperMarioWiiConstants.ItemsPerBoard; i++)
+                    {
+                        if (i == focusedItem)
+                        {
+                            itemsInFocusedPosition.Add(b[i]);
+                        }
+                    }
+                }
+            }
         }
 
         private void RecalcAll(bool reposition = true)

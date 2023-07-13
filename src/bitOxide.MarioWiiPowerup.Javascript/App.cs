@@ -50,12 +50,16 @@ namespace bitOxide.MarioWiiPowerup.Javascript
                         if (row == 0)
                         {
                             if (!helpActive)
+                            {
                                 panelViewModel.ResetBoardInfos();
+                            }
                         }
                         else if (row == 1)
                         {
                             if (!helpActive)
+                            {
                                 panelViewModel.RemoveFocusedItem();
+                            }
                         }
                         else
                         {
@@ -75,8 +79,11 @@ namespace bitOxide.MarioWiiPowerup.Javascript
                     else if (row == 3)
                     {
                         if (!helpActive)
+                        {
                             panelViewModel.ClickItem(itemButtons[col]);
+                        }
                     }
+
                     Draw();
                 }
             }
@@ -328,7 +335,13 @@ namespace bitOxide.MarioWiiPowerup.Javascript
             {
                 ctx.Save();
                 ctx.Translate(x * distFactor, 3 + 2 * distA + distB);
-                DrawButton(itemImages.GetIcon(itemButtons[x]), null);
+
+                var item = itemButtons[x];
+                var isRelevantItem = panelViewModel.IsItemInFocusedPosition(item);
+                var alpha = isRelevantItem ? 1.0 : 0.2;
+
+                DrawButton(itemImages.GetIcon(item), null, alpha: alpha, preventBgBlack: !isRelevantItem);
+
                 ctx.Restore();
             }
 
@@ -364,10 +377,11 @@ namespace bitOxide.MarioWiiPowerup.Javascript
             bool whitebghide = false,
             bool isSafeSpot = false,
             bool isSelected = false,
-            bool forceBgBlack = false
+            bool forceBgBlack = false,
+            bool preventBgBlack = false
         )
         {
-            var drawBlack = (img != null && img.BlackBackground) || forceBgBlack;
+            var drawBlack = ((img != null && img.BlackBackground) || forceBgBlack) && !preventBgBlack;
 
             if (drawBlack)
             {
