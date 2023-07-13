@@ -4,7 +4,7 @@ namespace bitOxide.MarioWiiPowerup.Core.Strategies
 {
     public class FindSolutionWithLeastInputs4 : ISuggestionStrategy
     {
-        public int? SuggestNextItemPosition(Board[] boards, Item[] filledItems)
+        public int? SuggestNextItemPosition(Board[] boards, Item[] filledItems, int? lastPosition)
         {
             var allMatchingBoards = boards.Where(x => x.Matches(filledItems)).ToArray();
 
@@ -24,8 +24,13 @@ namespace bitOxide.MarioWiiPowerup.Core.Strategies
             var bowserPenality = allMatchingBoards.GetBowserFieldPenalty2();
             var instantLose = allMatchingBoards.GetInstantLoseScore(filledItems);
             var nonOpen = BoardScoreExtensions.GetNonOpenPositions(filledItems);
+            var distance = BoardScoreExtensions.GetDistanceFactors(lastPosition);
 
-            var props = BoardScoreExtensions.MergeScores(nonOpen, instantLose, duplicates, bowserPenality);
+            // distance tie break:
+            // we introduce a very small tie break that takes the distance to the next square into account
+            // this is especially useful for single player mode.
+
+            var props = BoardScoreExtensions.MergeScores(nonOpen, instantLose, duplicates, bowserPenality, distance);
 
             // determine lowest risk factor
             double maxProp = -1;

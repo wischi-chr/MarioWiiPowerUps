@@ -85,18 +85,23 @@ namespace bitOxide.MarioWiiPowerup.Tests
         {
             Item[] filledItems = new Item[SuperMarioWiiConstants.ItemsPerBoard];
             int suggestion = 0;
+            int? lastPosition = null;
 
             while (allBoards.Where(x => x.Matches(filledItems)).Count() > 1)
             {
-                var suggestionId = strategy.SuggestNextItemPosition(allBoards, filledItems);
+                var suggestionId = strategy.SuggestNextItemPosition(allBoards, filledItems, lastPosition);
                 suggestion++;
 
                 if (suggestionId != null)
                 {
+                    lastPosition = suggestionId.Value;
                     var item = board[suggestionId.Value];
 
                     if (!itemCounts.ContainsKey(item.Name))
+                    {
                         itemCounts.Add(item.Name, 0);
+                    }
+
                     itemCounts[item.Name]++;
 
                     filledItems[suggestionId.Value] = item;
@@ -108,6 +113,7 @@ namespace bitOxide.MarioWiiPowerup.Tests
 
             var solutions = allBoards.Where(x => x.Matches(filledItems)).ToArray();
             Assert.Single(solutions);
+
             return suggestion;
         }
     }

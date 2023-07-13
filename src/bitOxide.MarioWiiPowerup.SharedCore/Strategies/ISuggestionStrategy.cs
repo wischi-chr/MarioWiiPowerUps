@@ -2,6 +2,6 @@
 {
     public interface ISuggestionStrategy
     {
-        int? SuggestNextItemPosition(Board[] boards, Item[] filledItems);
+        int? SuggestNextItemPosition(Board[] boards, Item[] filledItems, int? lastPosition);
     }
 }

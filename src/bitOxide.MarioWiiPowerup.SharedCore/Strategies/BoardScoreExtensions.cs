@@ -131,6 +131,35 @@ namespace bitOxide.MarioWiiPowerup.Core.Strategies
             return cntBowsers.Select(i => (double)(cntBoards - i) / cntBoards).ToArray();
         }
 
+        public static double[] GetDistanceFactors(int? position)
+        {
+            var res = new double[SuperMarioWiiConstants.ItemsPerBoard];
+
+            if (!position.HasValue)
+            {
+                for (int i = 0; i < res.Length; i++)
+                {
+                    res[i] = 1.0;
+                }
+
+                return res;
+            }
+
+            var inputY = position.Value / 6;
+            var inputX = position.Value % 6;
+
+            for (int i = 0; i < res.Length; i++)
+            {
+                var y = i / 6;
+                var x = i % 6;
+
+                var distance = Math.Abs(x - inputX) + Math.Abs(y - inputY);
+                res[i] = 1.0 - distance * 0.0001;
+            }
+
+            return res;
+        }
+
         public static double[] GetBowserFieldPenalty(this IEnumerable<Board> boards)
         {
             var cntBoards = 0;

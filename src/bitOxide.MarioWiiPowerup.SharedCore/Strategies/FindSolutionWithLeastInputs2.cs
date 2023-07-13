@@ -4,7 +4,7 @@ namespace bitOxide.MarioWiiPowerup.Core.Strategies
 {
     public class FindSolutionWithLeastInputs2 : ISuggestionStrategy
     {
-        public int? SuggestNextItemPosition(Board[] boards, Item[] filledItems)
+        public int? SuggestNextItemPosition(Board[] boards, Item[] filledItems, int? lastPosition)
         {
             var allMatchingBoards = boards.Where(x => x.Matches(filledItems)).ToArray();
 

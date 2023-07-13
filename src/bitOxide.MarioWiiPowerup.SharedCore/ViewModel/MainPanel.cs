@@ -14,6 +14,8 @@ namespace bitOxide.MarioWiiPowerup.Core.ViewModel
 
         private readonly Item[] derivedItems = new Item[SuperMarioWiiConstants.ItemsPerBoard];
         private readonly bool[] isPositionBad = new bool[SuperMarioWiiConstants.ItemsPerBoard];
+        private readonly bool[] winOnNextDecision = new bool[SuperMarioWiiConstants.ItemsPerBoard];
+
         private readonly HashSet<Item> itemsInFocusedPosition = new HashSet<Item>();
 
         private readonly ISuggestionStrategy strat = new FindSolutionWithLeastInputs4();
@@ -37,6 +39,11 @@ namespace bitOxide.MarioWiiPowerup.Core.ViewModel
         public Item GetDerivedItem(int pos)
         {
             return derivedItems[pos];
+        }
+
+        public bool IsWinningPosition(int pos)
+        {
+            return winOnNextDecision[pos];
         }
 
         public bool IsPositionBad(int pos)
@@ -105,7 +112,7 @@ namespace bitOxide.MarioWiiPowerup.Core.ViewModel
 
         public void FocusBestPosition()
         {
-            var res = strat.SuggestNextItemPosition(allBoards, itemInformations);
+            var res = strat.SuggestNextItemPosition(allBoards, itemInformations, focusedItem);
 
             if (res == null)
             {
@@ -136,11 +143,20 @@ namespace bitOxide.MarioWiiPowerup.Core.ViewModel
 
         private void RecalcAllowedItems()
         {
-            itemsInFocusedPosition.Clear();
             var items = (Item[])itemInformations.Clone();
             items[focusedItem] = null;
 
-            var allMatchingBoards = allBoards.Where(x => x.Matches(items)).ToArray();
+            RecalcAllowedItems(itemsInFocusedPosition, items, focusedItem);
+        }
+
+        private void RecalcAllowedItems(ISet<Item> allowedItemBuffer, Item[] currentItemState, int position)
+        {
+            allowedItemBuffer.Clear();
+
+            var items = (Item[])itemInformations.Clone();
+            items[focusedItem] = null;
+
+            var allMatchingBoards = allBoards.Where(x => x.Matches(currentItemState)).ToArray();
 
             if (allMatchingBoards.Length > 1)
             {
@@ -148,13 +164,18 @@ namespace bitOxide.MarioWiiPowerup.Core.ViewModel
                 {
                     for (int i = 0; i < SuperMarioWiiConstants.ItemsPerBoard; i++)
                     {
-                        if (i == focusedItem)
+                        if (i == position)
                         {
-                            itemsInFocusedPosition.Add(b[i]);
+                            allowedItemBuffer.Add(b[i]);
                         }
                     }
                 }
             }
+        }
+
+        private bool IsSingleResultConfig(Item[] itemConfiguration)
+        {
+            return allBoards.Where(x => x.Matches(itemConfiguration)).Take(2).Count() == 1;
         }
 
         private void RecalcAll(bool reposition = true)
@@ -179,7 +200,13 @@ namespace bitOxide.MarioWiiPowerup.Core.ViewModel
             {
                 derivedItems[i] = null;
                 isPositionBad[i] = false;
+                winOnNextDecision[i] = false;
             }
+
+            // temp item info is used for winning position calculation
+            // and to reduce the GC pressure.
+            var winTempItemInfo = new Item[itemInformations.Length];
+            var winTempSet = new HashSet<Item>();
 
             // Update bowser safe spots
             if (allMatchingBoards.Length > 0)
@@ -192,6 +219,15 @@ namespace bitOxide.MarioWiiPowerup.Core.ViewModel
                     // find out if items are the same everywhere
                     derivedItems[i] = AllSameOrDefault(allMatchingBoards.Select(b => b[i]), null);
                     isPositionBad[i] = AllSameOrDefault(allMatchingBoards.Select(b => b[i].IsBad), false);
+
+                    Array.Copy(itemInformations, winTempItemInfo, itemInformations.Length);
+                    RecalcAllowedItems(winTempSet, winTempItemInfo, i);
+
+                    winOnNextDecision[i] = winTempSet.All(item =>
+                    {
+                        winTempItemInfo[i] = item;
+                        return IsSingleResultConfig(winTempItemInfo);
+                    });
                 }
 
                 foreach (var b in allMatchingBoards)

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using bitOxide.MarioWiiPowerup.Core;
 using Bridge.Html5;
 
@@ -21,8 +18,12 @@ namespace bitOxide.MarioWiiPowerup.Javascript
             get
             {
                 foreach (var v in itemImages.Values)
+                {
                     if (!v.Complete)
+                    {
                         return false;
+                    }
+                }
 
                 return true;
             }
@@ -30,13 +31,21 @@ namespace bitOxide.MarioWiiPowerup.Javascript
 
         public ScaledImage GetIcon(Item item)
         {
-            if (item == null) return null;
+            if (item == null)
+            {
+                return null;
+            }
+
             return itemImages.Get(item.Name);
         }
 
         public ScaledImage GetIcon(string name)
         {
-            if (name == null) return null;
+            if (name == null)
+            {
+                return null;
+            }
+
             return itemImages.Get(name);
         }
 
@@ -47,7 +56,14 @@ namespace bitOxide.MarioWiiPowerup.Javascript
 
         public void RegisterIcon(string name, string imageUrl, bool blackBg = false)
         {
-            var si = new ScaledImage(new HTMLImageElement() { Src = imageUrl }, blackBg);
+            var si = new ScaledImage(
+                new HTMLImageElement()
+                {
+                    Src = imageUrl,
+                },
+                blackBg
+            );
+
             itemImages.Add(name, si);
         }
 
@@ -69,6 +85,7 @@ namespace bitOxide.MarioWiiPowerup.Javascript
             iis.RegisterIcon("bullet", "img/bullet.png");
             iis.RegisterIcon("question", "img/questionmark.png");
             iis.RegisterIcon("pow", "img/pow.png");
+            iis.RegisterIcon("win", "img/win.png");
 
             return iis;
         }

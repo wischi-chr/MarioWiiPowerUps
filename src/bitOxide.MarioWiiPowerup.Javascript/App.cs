@@ -285,6 +285,7 @@ namespace bitOxide.MarioWiiPowerup.Javascript
 
                     var color = borderColorDefault;
                     var knownBad = panelViewModel.IsPositionBad(posId);
+                    var isWinPosition = panelViewModel.IsWinningPosition(posId);
 
                     if (icon == null)
                     {
@@ -302,6 +303,11 @@ namespace bitOxide.MarioWiiPowerup.Javascript
                                 colorSafeSpot = false;
                             }
                         }
+                    }
+
+                    if (icon == null && isWinPosition && colorSafeSpot)
+                    {
+                        icon = itemImages.GetIcon("win");
                     }
 
                     if (focused)
