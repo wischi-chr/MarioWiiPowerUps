@@ -19,7 +19,7 @@ namespace bitOxide.MarioWiiPowerup.Core.ViewModel
         private readonly HashSet<Item> itemsInFocusedPosition = new HashSet<Item>();
 
         private readonly ISuggestionStrategy strat = new FindSolutionWithLeastInputs4();
-        private readonly Stack<Item[]> itemHistory = new Stack<Item[]>();
+        private readonly List<Item[]> itemHistory = new List<Item[]>();
 
         private Board currentSolution = null;
         public Board SolvedBoard => currentSolution;
@@ -75,7 +75,11 @@ namespace bitOxide.MarioWiiPowerup.Core.ViewModel
                 entry[i] = itemInformations[i];
             }
 
-            itemHistory.Push(entry);
+            // first remove any duplicates of entry
+            itemHistory.RemoveAll(x => entry.SequenceEqual(x));
+
+            // add entry at the top of the stack (at the end)
+            itemHistory.Add(entry);
         }
 
         private void RestoreHistoryState()
@@ -85,7 +89,8 @@ namespace bitOxide.MarioWiiPowerup.Core.ViewModel
                 return;
             }
 
-            var lastEntry = itemHistory.Pop();
+            var lastEntry = itemHistory[itemHistory.Count - 1];
+            itemHistory.RemoveAt(itemHistory.Count - 1);
 
             for (int i = 0; i < SuperMarioWiiConstants.ItemsPerBoard; i++)
             {
