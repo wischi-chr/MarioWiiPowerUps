@@ -86,6 +86,7 @@ namespace bitOxide.MarioWiiPowerup.Javascript
             iis.RegisterIcon("question", "img/questionmark.png");
             iis.RegisterIcon("pow", "img/pow.png");
             iis.RegisterIcon("win", "img/win.png");
+            iis.RegisterIcon("bowser_unknown", "img/danger.png");
 
             return iis;
         }

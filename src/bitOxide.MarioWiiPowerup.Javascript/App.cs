@@ -202,8 +202,6 @@ namespace bitOxide.MarioWiiPowerup.Javascript
             var baseScale = Math.Min(scaleX, scaleY);
             boxScale = baseScale * devicePixelRatio;
 
-
-
             canvasScreen.Width = (int)Math.Round(Window.InnerWidth * devicePixelRatio);
             canvasScreen.Height = (int)Math.Round(Window.InnerHeight * devicePixelRatio);
 
@@ -280,6 +278,7 @@ namespace bitOxide.MarioWiiPowerup.Javascript
 
                     var icon = itemImages.GetIcon(panelViewModel.GetItemFromPosition(posId));
                     var iconWasSet = icon != null;
+                    var alpha = iconWasSet ? 1.0 : 0.7;
 
                     var colorSafeSpot = panelViewModel.IsPositionSafe(posId) && !iconWasSet && solved == null;
 
@@ -310,6 +309,12 @@ namespace bitOxide.MarioWiiPowerup.Javascript
                         icon = itemImages.GetIcon("win");
                     }
 
+                    if (knownBad && icon == null)
+                    {
+                        icon = itemImages.GetIcon("bowser_unknown");
+                        alpha = 1.0;
+                    }
+
                     if (focused)
                     {
                         color = borderColorFocus;
@@ -325,7 +330,7 @@ namespace bitOxide.MarioWiiPowerup.Javascript
                     DrawButton(
                         icon,
                         color,
-                        iconWasSet ? 1.0 : 0.7,
+                        alpha,
                         bw: noMatches,
                         isSelected: focused,
                         isSafeSpot: colorSafeSpot,
@@ -433,7 +438,6 @@ namespace bitOxide.MarioWiiPowerup.Javascript
                 ctx.FillStyle = "white";
                 ctx.RoundedRectPath(0, 0, 1, 1, 0.2);
                 ctx.Fill();
-                //ctx.FillRect(0, 0, 1, 1);
                 ctx.Restore();
             }
 
